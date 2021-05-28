@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <title>Text-to-speech</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssfonts/cssfonts-min.css"> -->
+        <style>
+            body{
+                height: 100vh;
+                display: flex;
+                /* justify-content: center; */
+                align-items: center;
+                flex-direction: column;
+                line-height: 5;
+
+            }
+            input{
+                width:500px;
+                border-radius: 5px;
+                padding: 0px 10px;
+                font-size: 18px;
+                box-shadow: 0px 0px 6px 0px black;
+                height: 60px;
+
+            }
+            button{
+                width: 500px;
+                height: 40px;
+                border-radius: 5px;
+                margin-top: 10px;
+                font-size: 18px;
+                letter-spacing: 2px;
+                box-shadow: 0px 0px 6px 0px black;
+
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Enter any sentence down below and hear computer recite it!!</h2>
+        <input type="text" id="enter" placeholder="Enter your text here......"/>
+        <button type="button" onclick="audio()">Speak up!</button>
+    </body>
+
+
+
+    <script>
+        function audio(){
+            let msg = document.getElementById("enter").value;
+            console.log(msg);
+            let speech = new SpeechSynthesisUtterance();
+            speech.lang="en-us";
+
+            speech.text = msg;
+            speech.volume= 1;
+            speech.pitch= 1;
+            speech.rate = 1;
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+</html>
+
+
